@@ -4,57 +4,158 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Privacy Policy – NudgeIt</title>
+  <meta name="description" content="Privacy Policy for NudgeIt – the silent haptic wake-up app for iPhone and Apple Watch." />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
     :root {
-      --orange: #FF6B00;
-      --bg: #0F0F0F;
-      --surface: #1A1A1A;
-      --text: #F0F0F0;
-      --muted: #888;
-      --border: #2A2A2A;
+      --black:       #080808;
+      --slate-950:   #0D0D0F;
+      --slate-900:   #131317;
+      --slate-800:   #1C1C22;
+      --slate-700:   #27272F;
+      --slate-500:   #52525E;
+      --slate-400:   #71717D;
+      --slate-200:   #C8C8D0;
+      --white:       #F4F4F6;
+      --accent:      #FF6500;
+      --accent-dim:  rgba(255,101,0,.12);
+      --radius-sm:   8px;
+      --radius-md:   14px;
+      --radius-lg:   22px;
+      --font:        -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif;
     }
-    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: var(--bg); color: var(--text); line-height: 1.8; }
-    a { color: var(--orange); }
 
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font);
+      background: var(--black);
+      color: var(--white);
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); }
+    a:hover { text-decoration: underline; }
+
+    /* NAV */
     nav {
+      position: sticky; top: 0; z-index: 100;
       display: flex; justify-content: space-between; align-items: center;
-      padding: 20px 40px; border-bottom: 1px solid var(--border);
+      padding: 18px 40px;
+      background: rgba(8,8,8,.85);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--slate-800);
     }
-    .nav-logo { font-size: 1.2rem; font-weight: 700; color: var(--text); text-decoration: none; }
-    .nav-links { display: flex; gap: 24px; font-size: 0.9rem; }
-    .nav-links a { color: var(--muted); text-decoration: none; }
-    .nav-links a:hover { color: var(--text); }
-
-    .page { max-width: 740px; margin: 0 auto; padding: 60px 20px 100px; }
-
-    h1 { font-size: 2.2rem; font-weight: 800; margin-bottom: 8px; }
-    .updated { color: var(--muted); font-size: 0.9rem; margin-bottom: 48px; }
-
-    h2 { font-size: 1.15rem; font-weight: 700; margin: 36px 0 10px; color: var(--orange); }
-    p { font-size: 0.95rem; color: #ccc; margin-bottom: 12px; }
-    ul { margin: 8px 0 12px 20px; }
-    li { font-size: 0.95rem; color: #ccc; margin-bottom: 6px; }
-
-    .highlight {
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: 12px; padding: 20px 24px; margin: 24px 0;
+    .nav-brand {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 1.05rem; font-weight: 700;
+      color: var(--white); text-decoration: none;
     }
-    .highlight p { margin: 0; }
+    .nav-links { display: flex; gap: 28px; font-size: .875rem; }
+    .nav-links a { color: var(--slate-400); text-decoration: none; transition: color .15s; }
+    .nav-links a:hover { color: var(--white); }
+    @media (max-width: 600px) { nav { padding: 16px 20px; } .nav-links { gap: 16px; } }
 
+    /* PAGE */
+    .page { max-width: 780px; margin: 0 auto; padding: 70px 24px 100px; }
+
+    .page-header { margin-bottom: 48px; }
+    .page-header h1 { font-size: 2.4rem; font-weight: 800; letter-spacing: -1px; margin-bottom: 10px; }
+    .updated { font-size: .85rem; color: var(--slate-500); }
+
+    /* SUMMARY BOX */
+    .summary-box {
+      background: var(--slate-900);
+      border: 1px solid var(--slate-800);
+      border-left: 4px solid var(--accent);
+      border-radius: var(--radius-md);
+      padding: 24px 28px;
+      margin-bottom: 56px;
+    }
+    .summary-box p { font-size: .9rem; color: var(--slate-200); }
+
+    /* SECTIONS */
+    .policy-section { margin-bottom: 52px; }
+
+    .section-num {
+      display: inline-block;
+      font-size: .72rem; font-weight: 700;
+      letter-spacing: 2px; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 10px;
+    }
+    .policy-section h2 {
+      font-size: 1.25rem; font-weight: 700;
+      margin-bottom: 18px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--slate-800);
+    }
+    .policy-section p {
+      font-size: .9rem; color: var(--slate-200);
+      margin-bottom: 14px;
+    }
+    .policy-section p:last-child { margin-bottom: 0; }
+    .policy-section strong { color: var(--white); }
+
+    /* DATA CARDS — for the three key sections */
+    .data-card {
+      background: var(--slate-900);
+      border: 1px solid var(--slate-800);
+      border-radius: var(--radius-md);
+      padding: 24px 28px;
+      margin-bottom: 16px;
+    }
+    .data-card-header {
+      display: flex; align-items: center; gap: 12px;
+      margin-bottom: 12px;
+    }
+    .data-card-icon { font-size: 1.4rem; flex-shrink: 0; }
+    .data-card h3 { font-size: 1rem; font-weight: 700; }
+    .data-card p { font-size: .875rem; color: var(--slate-400); line-height: 1.7; }
+    .data-card p + p { margin-top: 8px; }
+
+    ul.policy-list { margin: 10px 0 14px 20px; }
+    ul.policy-list li { font-size: .875rem; color: var(--slate-400); margin-bottom: 6px; }
+    ul.policy-list li strong { color: var(--slate-200); }
+
+    /* NO DATA GRID */
+    .no-data-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 12px;
+      margin-top: 16px;
+    }
+    .no-data-item {
+      background: var(--slate-900);
+      border: 1px solid var(--slate-800);
+      border-radius: var(--radius-sm);
+      padding: 14px 16px;
+      display: flex; align-items: center; gap: 10px;
+      font-size: .85rem; color: var(--slate-400);
+    }
+    .no-data-item .x { color: #ef4444; font-weight: 700; }
+
+    /* FOOTER */
     footer {
-      text-align: center; padding: 40px 20px;
-      border-top: 1px solid var(--border);
-      font-size: 0.85rem; color: var(--muted);
+      border-top: 1px solid var(--slate-800);
+      padding: 36px 24px;
+      text-align: center;
+      color: var(--slate-500); font-size: .85rem;
     }
-    .footer-links { display: flex; justify-content: center; gap: 24px; margin-bottom: 12px; }
-    .footer-links a { color: var(--muted); text-decoration: none; }
+    .footer-links {
+      display: flex; justify-content: center; gap: 24px;
+      margin-bottom: 12px; flex-wrap: wrap;
+    }
+    .footer-links a { color: var(--slate-400); text-decoration: none; }
+    .footer-links a:hover { color: var(--white); }
   </style>
 </head>
 <body>
 
 <nav>
-  <a class="nav-logo" href="/">📳 NudgeIt</a>
+  <a class="nav-brand" href="/">
+    <span>📳</span>
+    <span>NudgeIt</span>
+  </a>
   <div class="nav-links">
     <a href="/support">Support</a>
     <a href="/privacy">Privacy</a>
@@ -63,99 +164,157 @@
 
 <div class="page">
 
-  <h1>Privacy Policy</h1>
-  <p class="updated">Last updated: May 2026</p>
-
-  <div class="highlight">
-    <p>NudgeIt is built by an independent developer, Or Shamir. This policy explains what data is collected, why, and how it is handled. Your privacy is taken seriously — only the minimum data required to operate the app is collected.</p>
+  <div class="page-header">
+    <h1>Privacy Policy</h1>
+    <p class="updated">Last updated: May 2026</p>
   </div>
 
-  <h2>1. Who We Are</h2>
-  <p>NudgeIt ("the app", "we", "us") is developed and maintained by Or Shamir, an independent developer. You can contact us at <a href="mailto:nudgeupservice@gmail.com">nudgeupservice@gmail.com</a>.</p>
+  <div class="summary-box">
+    <p>NudgeIt is a personal project developed and maintained by <strong>Or Shamir</strong>, an independent developer. This policy describes exactly what data is collected, why it is collected, and how it is handled. The short version: only the data strictly necessary to operate the app is collected — nothing more.</p>
+  </div>
 
-  <h2>2. What Data We Collect</h2>
+  <!-- 1. WHO WE ARE -->
+  <div class="policy-section">
+    <span class="section-num">Section 1</span>
+    <h2>Who We Are</h2>
+    <p>NudgeIt ("the app", "we", "us") is developed by <strong>Or Shamir</strong>, an independent developer. You can reach us at <a href="mailto:nudgeupservice@gmail.com">nudgeupservice@gmail.com</a>.</p>
+  </div>
 
-  <p><strong>Account information</strong><br>
-  When you sign in with Google or Apple, we receive your email address. This is stored in our database to identify your account. We do not receive your password.</p>
+  <!-- 2. AUTHENTICATION -->
+  <div class="policy-section">
+    <span class="section-num">Section 2</span>
+    <h2>Authentication</h2>
 
-  <p><strong>Device identifier (iPhone app)</strong><br>
-  A randomly generated device ID ("phone ID") is created when you first install the app. This ID is stored on your device (in the device Keychain) and in our database to link your iPhone to any Apple Watches you pair. It does not contain your name or any personally identifiable information.</p>
+    <div class="data-card">
+      <div class="data-card-header">
+        <span class="data-card-icon">🔐</span>
+        <h3>Google Sign-In &amp; Sign in with Apple</h3>
+      </div>
+      <p>NudgeIt offers two third-party sign-in methods: <strong>Google Sign-In</strong> and <strong>Sign in with Apple</strong>. When you authenticate through either provider, NudgeIt receives only your <strong>email address</strong> — no password, no contact list, no profile photo unless explicitly shared by you.</p>
+      <p>This email address is stored securely in <strong>Google Firebase Authentication</strong> and in the app's Firestore database, where it is used solely to identify your account. It is not used for marketing, shared with advertisers, or disclosed to any third party outside the Firebase infrastructure.</p>
+      <p>Sign in with Apple users may choose to hide their real email using Apple's private relay feature. NudgeIt accepts relayed addresses and does not require a real email to be disclosed.</p>
+    </div>
+  </div>
 
-  <p><strong>Device identifier (Apple Watch app)</strong><br>
-  A randomly generated watch ID is created on the Apple Watch. This ID is used to receive push notifications and to link the watch to paired iPhones. It is stored in our database alongside the watch's push notification token.</p>
+  <!-- 3. PUSH NOTIFICATION INFRASTRUCTURE -->
+  <div class="policy-section">
+    <span class="section-num">Section 3</span>
+    <h2>Push Notification Infrastructure</h2>
 
-  <p><strong>Push notification token</strong><br>
-  The Apple Watch receives nudges via Firebase Cloud Messaging (FCM). Your watch's FCM token is stored in our database and is used solely to deliver nudge signals from the paired iPhone. It is updated automatically when it changes and deleted when you unpair.</p>
+    <div class="data-card">
+      <div class="data-card-header">
+        <span class="data-card-icon">📡</span>
+        <h3>FCM &amp; APNS Device Tokens</h3>
+      </div>
+      <p>NudgeIt's core function — delivering a haptic wake-up signal to an Apple Watch — requires the collection and storage of <strong>device push tokens</strong>. Specifically:</p>
+      <p><strong>Firebase Cloud Messaging (FCM) token:</strong> generated by the Apple Watch device and uploaded to NudgeIt's Firestore database. This token is the address used to route haptic signaling commands from the sender's iPhone to the correct watch. Without it, push delivery is not possible.</p>
+      <p><strong>Apple Push Notification service (APNs) token:</strong> the underlying Apple token that FCM bridges. This is handled internally by the Firebase SDK and is not stored separately by NudgeIt.</p>
+      <p>Tokens are associated with a <strong>randomly generated device identifier</strong> (not your name or email). They are refreshed automatically when they change, and deleted from our database when you unpair the watch or uninstall the app. Tokens are never shared with third parties and are never used for any purpose other than delivering NudgeIt haptic signals.</p>
+    </div>
+  </div>
 
-  <p><strong>In-app purchase information</strong><br>
-  If you subscribe to NudgeIt Premium, Apple processes the payment. We receive only the result of the transaction (success or failure) and store your subscription tier ("FREE" or "PREMIUM") in our database. We never see your payment details.</p>
+  <!-- 4. DATA PROTECTION -->
+  <div class="policy-section">
+    <span class="section-num">Section 4</span>
+    <h2>Data Protection</h2>
 
-  <p><strong>Usage data (activity history)</strong><br>
-  A local log of nudge events (sent, vibrating, woke up, timeout) is stored on your iPhone. This data does not leave your device except as described above.</p>
+    <div class="data-card">
+      <div class="data-card-header">
+        <span class="data-card-icon">🛡️</span>
+        <h3>What NudgeIt Does Not Log</h3>
+      </div>
+      <p><strong>No physical location data is collected at any point.</strong> NudgeIt does not access GPS, coarse location, Wi-Fi network names, or any other location signal. The app does not know or store where you are.</p>
+      <p><strong>No message contents are logged.</strong> NudgeIt signals carry no text, voice, image, or any user-composed content. The only data transmitted in a nudge payload is: a wake-up command identifier, a vibration profile name (gentle / normal / urgent), and the sender's display name as set by the sender. No private communication takes place through NudgeIt.</p>
+      <p><strong>Alarm status is processed strictly to verify wake-up state.</strong> When a nudge is sent, a record is written to the database with a status field (<code>pending</code> → <code>received</code> → <code>stopped</code>). This record exists only to close the real-time confirmation loop — letting the sender know when the watch vibrated and when the wearer pressed Stop. It is not used for analytics, profiling, or any secondary purpose.</p>
+    </div>
 
-  <h2>3. What We Do Not Collect</h2>
-  <ul>
-    <li>Location data</li>
-    <li>Contacts or address book</li>
-    <li>Microphone or camera</li>
-    <li>Health or fitness data</li>
-    <li>Advertising identifiers</li>
-    <li>Browsing history or usage analytics</li>
-  </ul>
+    <p style="margin-top:20px">The following data types are <strong>never collected</strong>:</p>
+    <div class="no-data-grid">
+      <div class="no-data-item"><span class="x">✕</span> Physical location</div>
+      <div class="no-data-item"><span class="x">✕</span> Contacts / address book</div>
+      <div class="no-data-item"><span class="x">✕</span> Microphone</div>
+      <div class="no-data-item"><span class="x">✕</span> Camera</div>
+      <div class="no-data-item"><span class="x">✕</span> Health data</div>
+      <div class="no-data-item"><span class="x">✕</span> Message content</div>
+      <div class="no-data-item"><span class="x">✕</span> Advertising ID</div>
+      <div class="no-data-item"><span class="x">✕</span> Browsing history</div>
+    </div>
+  </div>
 
-  <h2>4. How We Use Your Data</h2>
-  <p>The data we collect is used exclusively to operate the app:</p>
-  <ul>
-    <li>Your email address identifies your account and enables sign-in.</li>
-    <li>Your device IDs link your iPhone and Apple Watch so nudge signals can be routed correctly.</li>
-    <li>Your push notification token is used to deliver nudge signals to your Apple Watch.</li>
-    <li>Your subscription tier controls which features are available in the app.</li>
-  </ul>
-  <p>We do not use your data for advertising, profiling, or any purpose beyond operating the app.</p>
+  <!-- 5. WHAT WE COLLECT (SUMMARY) -->
+  <div class="policy-section">
+    <span class="section-num">Section 5</span>
+    <h2>Full Data Inventory</h2>
+    <ul class="policy-list">
+      <li><strong>Email address</strong> — for account sign-in and identification. Stored in Firebase.</li>
+      <li><strong>iPhone device ID</strong> — a randomly generated identifier stored in the device Keychain and in Firebase, used to link your iPhone to paired watches.</li>
+      <li><strong>Apple Watch device ID</strong> — a randomly generated identifier stored on the watch and in Firebase, used as the routing key for push delivery.</li>
+      <li><strong>FCM push token</strong> — required to deliver nudge signals to the Apple Watch. Stored in Firebase, deleted on unpair.</li>
+      <li><strong>Subscription tier</strong> — FREE or PREMIUM. Stored in Firebase to control feature access.</li>
+      <li><strong>Alarm status records</strong> — pending / received / stopped. Stored temporarily in Firebase to power the real-time confirmation loop.</li>
+      <li><strong>Activity history</strong> — a local log of nudge events stored only on your iPhone. It does not leave your device.</li>
+    </ul>
+  </div>
 
-  <h2>5. Third-Party Services</h2>
-  <p>NudgeIt uses the following third-party services to operate:</p>
+  <!-- 6. THIRD-PARTY SERVICES -->
+  <div class="policy-section">
+    <span class="section-num">Section 6</span>
+    <h2>Third-Party Services</h2>
+    <p><strong>Google Firebase</strong> (Google LLC) — Authentication, Firestore database, and Cloud Messaging. Governed by <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>.</p>
+    <p><strong>Sign in with Apple</strong> (Apple Inc.) — Optional sign-in method. Governed by <a href="https://www.apple.com/legal/privacy" target="_blank" rel="noopener">Apple's Privacy Policy</a>.</p>
+    <p><strong>Sign in with Google</strong> (Google LLC) — Optional sign-in method. Governed by <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>.</p>
+    <p>No analytics SDKs, advertising networks, or data brokers are integrated into NudgeIt.</p>
+  </div>
 
-  <p><strong>Google Firebase</strong> (Google LLC)<br>
-  We use Firebase Authentication (sign-in), Cloud Firestore (data storage), and Firebase Cloud Messaging (push notifications). Firebase is governed by Google's Privacy Policy: <a href="https://policies.google.com/privacy" target="_blank">policies.google.com/privacy</a></p>
+  <!-- 7. IN-APP PURCHASES -->
+  <div class="policy-section">
+    <span class="section-num">Section 7</span>
+    <h2>In-App Purchases</h2>
+    <p>Premium subscriptions are processed entirely by <strong>Apple's App Store</strong>. NudgeIt never sees your payment details. We receive only the transaction result (success or failure) and store your subscription tier (FREE or PREMIUM) in our database.</p>
+  </div>
 
-  <p><strong>Sign in with Apple</strong> (Apple Inc.)<br>
-  If you choose to sign in with Apple, Apple handles authentication. Apple's Privacy Policy applies: <a href="https://www.apple.com/legal/privacy" target="_blank">apple.com/legal/privacy</a></p>
+  <!-- 8. DATA STORAGE -->
+  <div class="policy-section">
+    <span class="section-num">Section 8</span>
+    <h2>Data Storage &amp; Security</h2>
+    <p>Data is stored in Google Firebase servers located in the United States. Firebase applies industry-standard encryption for data in transit (TLS) and at rest. Access to your data is restricted to your own account through Firebase Security Rules — no other user or application can read it.</p>
+  </div>
 
-  <p><strong>Sign in with Google</strong> (Google LLC)<br>
-  If you choose to sign in with Google, Google handles authentication. Google's Privacy Policy applies: <a href="https://policies.google.com/privacy" target="_blank">policies.google.com/privacy</a></p>
+  <!-- 9. RETENTION -->
+  <div class="policy-section">
+    <span class="section-num">Section 9</span>
+    <h2>Data Retention</h2>
+    <p>Your account data is retained for as long as your account remains active. Push tokens are deleted when you unpair a watch. If you request account deletion, all associated data is permanently removed within 30 days.</p>
+  </div>
 
-  <p>No other third parties have access to your data.</p>
+  <!-- 10. YOUR RIGHTS -->
+  <div class="policy-section">
+    <span class="section-num">Section 10</span>
+    <h2>Your Rights</h2>
+    <p>You have the right to access, correct, export, or delete the data we hold about you. To exercise any of these rights, email <a href="mailto:nudgeupservice@gmail.com">nudgeupservice@gmail.com</a> with the subject "Privacy Request". We will respond within 30 days.</p>
+  </div>
 
-  <h2>6. Data Storage and Security</h2>
-  <p>Your data is stored in Google Firebase servers, which are located in the United States. Firebase uses industry-standard encryption for data in transit and at rest. We follow Firebase's recommended security rules to restrict access to your data to your own account only.</p>
+  <!-- 11. CHILDREN -->
+  <div class="policy-section">
+    <span class="section-num">Section 11</span>
+    <h2>Children's Privacy</h2>
+    <p>NudgeIt is not directed at children under the age of 13. We do not knowingly collect data from children under 13. If you believe a child has provided personal information, contact us and we will delete it promptly.</p>
+  </div>
 
-  <h2>7. Data Retention</h2>
-  <p>Your account data is retained for as long as your account is active. If you delete your account, all associated data (email address, device IDs, paired watches, and nudge records) is permanently deleted within 30 days.</p>
-  <p>Push notification tokens are deleted when you unpair a watch or uninstall the app.</p>
+  <!-- 12. CHANGES -->
+  <div class="policy-section">
+    <span class="section-num">Section 12</span>
+    <h2>Changes to This Policy</h2>
+    <p>If this policy changes materially, the "Last updated" date at the top of this page will be updated. Continued use of NudgeIt after changes constitutes acceptance of the revised policy.</p>
+  </div>
 
-  <h2>8. Your Rights</h2>
-  <p>You have the right to:</p>
-  <ul>
-    <li><strong>Access</strong> the data we hold about you.</li>
-    <li><strong>Correct</strong> inaccurate data.</li>
-    <li><strong>Delete</strong> your account and all associated data.</li>
-    <li><strong>Export</strong> your data.</li>
-  </ul>
-  <p>To exercise any of these rights, email us at <a href="mailto:nudgeupservice@gmail.com">nudgeupservice@gmail.com</a> with the subject "Privacy Request". We will respond within 30 days.</p>
-
-  <h2>9. Children's Privacy</h2>
-  <p>NudgeIt is not directed at children under the age of 13. We do not knowingly collect personal information from children under 13. If you believe a child has provided us with personal information, please contact us and we will delete it promptly.</p>
-
-  <h2>10. Changes to This Policy</h2>
-  <p>If we make significant changes to this privacy policy, we will update the "Last updated" date at the top of this page. We encourage you to review this page periodically. Continued use of the app after changes constitutes acceptance of the updated policy.</p>
-
-  <h2>11. Contact</h2>
-  <p>If you have any questions or concerns about this privacy policy or how your data is handled, please contact us:</p>
-  <p>
-    Or Shamir<br>
-    <a href="mailto:nudgeupservice@gmail.com">nudgeupservice@gmail.com</a>
-  </p>
+  <!-- 13. CONTACT -->
+  <div class="policy-section">
+    <span class="section-num">Section 13</span>
+    <h2>Contact</h2>
+    <p>Or Shamir<br>
+    <a href="mailto:nudgeupservice@gmail.com">nudgeupservice@gmail.com</a></p>
+  </div>
 
 </div>
 

@@ -4,75 +4,201 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Support – NudgeIt</title>
-  <meta name="description" content="Get help with NudgeIt — the silent haptic wake-up app for Apple Watch." />
+  <meta name="description" content="Get help with NudgeIt. Contact us about pairing codes, haptic loops, subscriptions, or any other issue." />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
     :root {
-      --orange: #FF6B00;
-      --bg: #0F0F0F;
-      --surface: #1A1A1A;
-      --text: #F0F0F0;
-      --muted: #888;
-      --border: #2A2A2A;
+      --black:       #080808;
+      --slate-950:   #0D0D0F;
+      --slate-900:   #131317;
+      --slate-800:   #1C1C22;
+      --slate-700:   #27272F;
+      --slate-500:   #52525E;
+      --slate-400:   #71717D;
+      --slate-200:   #C8C8D0;
+      --white:       #F4F4F6;
+      --accent:      #FF6500;
+      --accent-dim:  rgba(255,101,0,.12);
+      --radius-sm:   8px;
+      --radius-md:   14px;
+      --radius-lg:   22px;
+      --font:        -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif;
     }
-    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; }
-    a { color: var(--orange); text-decoration: none; }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font);
+      background: var(--black);
+      color: var(--white);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); }
     a:hover { text-decoration: underline; }
 
+    /* NAV */
     nav {
+      position: sticky; top: 0; z-index: 100;
       display: flex; justify-content: space-between; align-items: center;
-      padding: 20px 40px; border-bottom: 1px solid var(--border);
+      padding: 18px 40px;
+      background: rgba(8,8,8,.85);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--slate-800);
     }
-    .nav-logo { font-size: 1.2rem; font-weight: 700; color: var(--text); text-decoration: none; }
-    .nav-links { display: flex; gap: 24px; font-size: 0.9rem; }
-    .nav-links a { color: var(--muted); }
-    .nav-links a:hover { color: var(--text); text-decoration: none; }
-
-    .page { max-width: 740px; margin: 0 auto; padding: 60px 20px 100px; }
-
-    h1 { font-size: 2.2rem; font-weight: 800; margin-bottom: 12px; }
-    .subtitle { color: var(--muted); font-size: 1.05rem; margin-bottom: 60px; }
-
-    .contact-box {
-      background: var(--surface);
-      border: 1px solid var(--orange);
-      border-radius: 16px;
-      padding: 28px;
-      margin-bottom: 56px;
-      display: flex;
-      align-items: center;
-      gap: 20px;
+    .nav-brand {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 1.05rem; font-weight: 700; color: var(--white);
+      text-decoration: none;
     }
-    .contact-box .icon { font-size: 2.2rem; flex-shrink: 0; }
-    .contact-box h2 { font-size: 1.1rem; font-weight: 700; margin-bottom: 4px; }
-    .contact-box p { font-size: 0.9rem; color: var(--muted); }
-    .contact-box a { font-weight: 600; }
+    .nav-links { display: flex; gap: 28px; font-size: .875rem; }
+    .nav-links a { color: var(--slate-400); text-decoration: none; transition: color .15s; }
+    .nav-links a:hover { color: var(--white); }
+    @media (max-width: 600px) { nav { padding: 16px 20px; } .nav-links { gap: 16px; } }
 
-    h2.faq-heading {
-      font-size: 1.4rem; font-weight: 700; margin-bottom: 24px;
-      padding-bottom: 12px; border-bottom: 1px solid var(--border);
+    /* PAGE */
+    .page { max-width: 780px; margin: 0 auto; padding: 70px 24px 100px; }
+
+    .page-header { margin-bottom: 60px; }
+    .page-header h1 { font-size: 2.4rem; font-weight: 800; letter-spacing: -1px; margin-bottom: 10px; }
+    .page-header p { color: var(--slate-400); font-size: 1.05rem; }
+
+    /* CONTACT FORM */
+    .form-card {
+      background: var(--slate-900);
+      border: 1px solid var(--slate-800);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      margin-bottom: 64px;
+    }
+    .form-card h2 {
+      font-size: 1.2rem; font-weight: 700; margin-bottom: 6px;
+    }
+    .form-card .form-sub {
+      font-size: .875rem; color: var(--slate-400); margin-bottom: 32px;
     }
 
-    .faq { margin-bottom: 48px; }
-    .faq-item { border-bottom: 1px solid var(--border); padding: 20px 0; }
-    .faq-item:last-child { border-bottom: none; }
-    .faq-q { font-weight: 700; font-size: 1rem; margin-bottom: 8px; }
-    .faq-a { font-size: 0.9rem; color: var(--muted); }
-    .faq-a strong { color: var(--text); }
+    .form-row { display: grid; gap: 18px; }
+    .form-row.two-col {
+      grid-template-columns: 1fr 1fr;
+    }
+    @media (max-width: 580px) { .form-row.two-col { grid-template-columns: 1fr; } }
 
+    .field { display: flex; flex-direction: column; gap: 7px; }
+    label {
+      font-size: .8rem; font-weight: 600;
+      letter-spacing: .5px; color: var(--slate-200);
+    }
+    label .req { color: var(--accent); margin-left: 2px; }
+
+    input[type="email"],
+    select,
+    textarea {
+      background: var(--slate-800);
+      border: 1px solid var(--slate-700);
+      border-radius: var(--radius-sm);
+      color: var(--white);
+      font-family: var(--font);
+      font-size: .9rem;
+      padding: 12px 14px;
+      width: 100%;
+      transition: border-color .2s, box-shadow .2s;
+      -webkit-appearance: none;
+    }
+    input[type="email"]:focus,
+    select:focus,
+    textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px var(--accent-dim);
+    }
+    input::placeholder, textarea::placeholder { color: var(--slate-500); }
+
+    select {
+      cursor: pointer;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2371717D' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 38px;
+    }
+    select option { background: var(--slate-900); }
+
+    textarea { resize: vertical; min-height: 130px; }
+
+    .form-footer {
+      display: flex; align-items: center;
+      justify-content: space-between; flex-wrap: wrap; gap: 14px;
+      margin-top: 24px;
+    }
+    .form-note { font-size: .78rem; color: var(--slate-500); }
+
+    .btn-submit {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--accent);
+      color: #fff;
+      border: none; border-radius: var(--radius-sm);
+      padding: 13px 28px;
+      font-family: var(--font);
+      font-size: .95rem; font-weight: 700;
+      cursor: pointer;
+      transition: background .2s, transform .15s;
+    }
+    .btn-submit:hover { background: #e05a00; transform: translateY(-1px); }
+    .btn-submit:active { transform: none; }
+
+    /* FAQ */
+    .faq-heading {
+      font-size: 1.3rem; font-weight: 700; margin-bottom: 24px;
+      padding-bottom: 14px; border-bottom: 1px solid var(--slate-800);
+    }
+    details {
+      border-bottom: 1px solid var(--slate-800);
+    }
+    details:last-of-type { border-bottom: none; }
+    summary {
+      list-style: none;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 20px 0;
+      font-size: .95rem; font-weight: 600;
+      cursor: pointer; user-select: none;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary::after {
+      content: '+';
+      font-size: 1.3rem; color: var(--accent);
+      transition: transform .2s;
+      flex-shrink: 0; margin-left: 16px;
+    }
+    details[open] summary::after { transform: rotate(45deg); }
+    .faq-body {
+      font-size: .9rem; color: var(--slate-400);
+      padding-bottom: 20px; line-height: 1.75;
+    }
+    .faq-body strong { color: var(--white); }
+    .faq-body p + p { margin-top: 10px; }
+
+    /* FOOTER */
     footer {
-      text-align: center; padding: 40px 20px;
-      border-top: 1px solid var(--border);
-      font-size: 0.85rem; color: var(--muted);
+      border-top: 1px solid var(--slate-800);
+      padding: 36px 24px;
+      text-align: center;
+      color: var(--slate-500); font-size: .85rem;
     }
-    footer a { color: var(--muted); }
-    .footer-links { display: flex; justify-content: center; gap: 24px; margin-bottom: 12px; }
+    .footer-links {
+      display: flex; justify-content: center; gap: 24px;
+      margin-bottom: 12px; flex-wrap: wrap;
+    }
+    .footer-links a { color: var(--slate-400); text-decoration: none; }
+    .footer-links a:hover { color: var(--white); }
   </style>
 </head>
 <body>
 
 <nav>
-  <a class="nav-logo" href="/">📳 NudgeIt</a>
+  <a class="nav-brand" href="/">
+    <span>📳</span>
+    <span>NudgeIt</span>
+  </a>
   <div class="nav-links">
     <a href="/support">Support</a>
     <a href="/privacy">Privacy</a>
@@ -81,80 +207,126 @@
 
 <div class="page">
 
-  <h1>Support</h1>
-  <p class="subtitle">Have a question or running into an issue? We're happy to help.</p>
-
-  <div class="contact-box">
-    <div class="icon">✉️</div>
-    <div>
-      <h2>Contact us</h2>
-      <p>Email us at <a href="mailto:nudgeupservice@gmail.com">nudgeupservice@gmail.com</a> and we'll get back to you as soon as possible.</p>
-    </div>
+  <div class="page-header">
+    <h1>Support</h1>
+    <p>Running into an issue? Fill in the form below and we'll get back to you promptly.</p>
   </div>
 
+  <!-- ── CONTACT FORM ── -->
+  <div class="form-card">
+    <h2>Contact Us</h2>
+    <p class="form-sub">All fields marked <span style="color:var(--accent)">*</span> are required. We aim to respond within 48 hours.</p>
+
+    <!--
+      To activate this form:
+      1. Create a free account at https://formspree.io
+      2. Create a new form and copy your form ID
+      3. Replace YOUR_FORM_ID in the action URL below
+    -->
+    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
+
+      <div class="form-row two-col">
+        <div class="field">
+          <label for="email">Your email address <span class="req">*</span></label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="you@example.com"
+            required
+            autocomplete="email"
+          />
+        </div>
+        <div class="field">
+          <label for="category">Category <span class="req">*</span></label>
+          <select id="category" name="category" required>
+            <option value="" disabled selected>Select a topic…</option>
+            <option value="pairing-codes">Pairing Codes</option>
+            <option value="haptic-loops">Haptic Loops &amp; Vibration</option>
+            <option value="general">General Questions</option>
+            <option value="subscription">Subscription &amp; Billing</option>
+            <option value="account">Account &amp; Sign-In</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-row" style="margin-top:18px;">
+        <div class="field">
+          <label for="message">Describe your issue <span class="req">*</span></label>
+          <textarea
+            id="message"
+            name="message"
+            placeholder="Please describe what happened, what you expected to happen, and which device(s) are involved (iPhone model, Apple Watch model, iOS/watchOS version)."
+            required
+          ></textarea>
+        </div>
+      </div>
+
+      <!-- Honeypot field to block bots — keep hidden -->
+      <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+      <input type="hidden" name="_subject" value="NudgeIt Support Request" />
+
+      <div class="form-footer">
+        <span class="form-note">Your email will only be used to respond to this request.</span>
+        <button type="submit" class="btn-submit">
+          Send Message →
+        </button>
+      </div>
+
+    </form>
+  </div>
+
+  <!-- ── FAQ ── -->
   <h2 class="faq-heading">Frequently Asked Questions</h2>
 
-  <div class="faq">
+  <details>
+    <summary>Does the Apple Watch need to be paired to the sender's iPhone?</summary>
+    <div class="faq-body">No. Any Apple Watch running the NudgeIt Watch app can be paired — it does not need to be the watch already associated with the sender's iPhone through Apple's system. The two devices communicate through the internet via NudgeIt's servers, not via Bluetooth or WatchConnectivity.</div>
+  </details>
 
-    <div class="faq-item">
-      <div class="faq-q">Does the Apple Watch need to be paired to the sender's iPhone?</div>
-      <div class="faq-a">No. Any Apple Watch running the NudgeIt Watch app can be paired — it does not need to be the watch associated with the sender's iPhone via Apple's system. The two devices communicate through the internet via NudgeIt's servers.</div>
+  <details>
+    <summary>How do I pair my iPhone with an Apple Watch?</summary>
+    <div class="faq-body">
+      <p><strong>On the Apple Watch:</strong> open the NudgeIt Watch app and tap "Pair Phone". A 6-digit code appears on screen — it is valid for 5 minutes.</p>
+      <p><strong>On the iPhone:</strong> tap "Pair New Watch", enter the 6-digit code and a name for the watch, then tap "Ready to Pair". The watch is linked immediately.</p>
     </div>
+  </details>
 
-    <div class="faq-item">
-      <div class="faq-q">How do I pair my iPhone with an Apple Watch?</div>
-      <div class="faq-a">
-        <strong>On the Apple Watch:</strong> open the NudgeIt Watch app and tap "Pair Phone" to generate a 6-digit code.<br><br>
-        <strong>On the iPhone:</strong> tap "Pair New Watch", enter the 6-digit code along with a name for the watch, then tap "Ready to Pair". The pairing code is valid for 5 minutes.
-      </div>
+  <details>
+    <summary>The watch is not vibrating when I tap NUDGE. What should I do?</summary>
+    <div class="faq-body">
+      <p>1. Make sure the <strong>NudgeIt Watch app has been opened at least once</strong> after installation — it registers its push token on first launch.</p>
+      <p>2. Verify the watch has an active internet connection (Wi-Fi or cellular).</p>
+      <p>3. If the iPhone shows "Open the watch app, then try again", open NudgeIt on the watch — it will refresh its connection automatically.</p>
+      <p>4. If the issue persists, unpair and re-pair the watch from the iPhone app.</p>
     </div>
+  </details>
 
-    <div class="faq-item">
-      <div class="faq-q">The watch is not vibrating when I tap NUDGE. What should I do?</div>
-      <div class="faq-a">
-        1. Make sure the NudgeIt Watch app is installed and open on the Apple Watch at least once after install.<br>
-        2. Check that the watch has an internet connection (Wi-Fi or cellular).<br>
-        3. On the watch, open NudgeIt and check that reception is enabled.<br>
-        4. If the issue persists, try unpairing and re-pairing the watch from the iPhone app.
-      </div>
-    </div>
+  <details>
+    <summary>How do I stop the vibration on the Apple Watch?</summary>
+    <div class="faq-body">Press and hold the large Stop button on the watch screen for 2 seconds while the progress ring fills. A deliberate hold is required — an accidental tap or wrist movement will not cancel the alarm. The sender's iPhone confirms the moment you stop it.</div>
+  </details>
 
-    <div class="faq-item">
-      <div class="faq-q">The iPhone app shows "Open the watch app, then try again." What does this mean?</div>
-      <div class="faq-a">The watch's push notification token has expired or changed. Open the NudgeIt Watch app on the Apple Watch — it will refresh its connection automatically. Then try sending the nudge again from the iPhone.</div>
-    </div>
+  <details>
+    <summary>How many nudges can I send per day?</summary>
+    <div class="faq-body"><strong>Free users</strong> can send 3 nudges per day using the Normal vibration profile. <strong>Premium users</strong> have unlimited nudges and access to all three profiles (Gentle, Normal, Urgent). The daily count resets at midnight.</div>
+  </details>
 
-    <div class="faq-item">
-      <div class="faq-q">How many watches can I pair?</div>
-      <div class="faq-a">Free users can pair <strong>1 watch</strong>. Premium users can pair up to <strong>3 watches</strong>.</div>
-    </div>
+  <details>
+    <summary>How many watches can I pair?</summary>
+    <div class="faq-body"><strong>Free users</strong> can pair 1 watch. <strong>Premium users</strong> can pair up to 3 watches.</div>
+  </details>
 
-    <div class="faq-item">
-      <div class="faq-q">How many nudges can I send per day?</div>
-      <div class="faq-a">Free users can send <strong>3 nudges per day</strong>. Premium users have <strong>unlimited</strong> nudges. The daily count resets at midnight.</div>
-    </div>
+  <details>
+    <summary>How do I cancel my Premium subscription?</summary>
+    <div class="faq-body">Open the <strong>Settings</strong> app on your iPhone → tap your Apple ID at the top → Subscriptions → NudgeIt → Cancel Subscription. You'll keep Premium access until the end of the current billing period.</div>
+  </details>
 
-    <div class="faq-item">
-      <div class="faq-q">How do I stop the vibration on the Apple Watch?</div>
-      <div class="faq-a">Press and hold the large Stop button on the watch screen. A brief hold is required to confirm you're awake — a light tap won't stop it.</div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-q">Can I use NudgeIt without an internet connection?</div>
-      <div class="faq-a">No. Both the iPhone and the Apple Watch need an active internet connection (Wi-Fi or cellular) to send and receive nudges. The nudge signal travels through NudgeIt's servers.</div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-q">How do I cancel my Premium subscription?</div>
-      <div class="faq-a">Open the <strong>Settings</strong> app on your iPhone → tap your Apple ID at the top → Subscriptions → NudgeIt → Cancel Subscription. You'll keep Premium access until the end of the current billing period.</div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-q">How do I delete my account?</div>
-      <div class="faq-a">Email us at <a href="mailto:nudgeupservice@gmail.com">nudgeupservice@gmail.com</a> with the subject "Delete my account" and we will permanently delete all data associated with your account within 30 days.</div>
-    </div>
-
-  </div>
+  <details>
+    <summary>How do I delete my account?</summary>
+    <div class="faq-body">Email us at <a href="mailto:nudgeupservice@gmail.com">nudgeupservice@gmail.com</a> with the subject "Delete my account". We will permanently delete all data associated with your account within 30 days.</div>
+  </details>
 
 </div>
 
@@ -162,6 +334,7 @@
   <div class="footer-links">
     <a href="/">Home</a>
     <a href="/privacy">Privacy Policy</a>
+    <a href="mailto:nudgeupservice@gmail.com">nudgeupservice@gmail.com</a>
   </div>
   <p>© 2026 Or Shamir</p>
 </footer>
