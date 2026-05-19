@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>NudgeIt – Don't Shout. Just Nudge.</title>
   <meta name="description" content="NudgeIt silently wakes up anyone wearing an Apple Watch by sending a continuous haptic vibration from an iPhone. For iOS and Apple Watch only." />
+  <link rel="icon" type="image/png" href="/assets/logo.png" />
+  <link rel="apple-touch-icon" href="/assets/logo.png" />
   <style>
     /* ── RESET ── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -55,7 +57,19 @@
       display: flex; align-items: center; gap: 10px;
       font-size: 1.05rem; font-weight: 700; color: var(--white);
     }
-    .nav-brand .pulse { font-size: 1.3rem; }
+    .nav-logo-img {
+      width: 28px; height: 28px;
+      border-radius: 7px;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+    .hero-logo-img {
+      width: 96px; height: 96px;
+      border-radius: 22px;
+      object-fit: cover;
+      margin: 0 auto 28px;
+      box-shadow: 0 8px 32px rgba(255,101,0,.25);
+    }
     .nav-links { display: flex; gap: 28px; font-size: .875rem; }
     .nav-links a { color: var(--slate-400); transition: color .15s; }
     .nav-links a:hover { color: var(--white); text-decoration: none; }
@@ -268,7 +282,7 @@
 <!-- ── NAV ── -->
 <nav>
   <div class="nav-brand">
-    <span class="pulse">📳</span>
+    <img class="nav-logo-img" src="/assets/logo.png" alt="NudgeIt logo" />
     <span>NudgeIt</span>
   </div>
   <div class="nav-links">
@@ -281,6 +295,7 @@
 
 <!-- ── HERO ── -->
 <section class="hero">
+  <img class="hero-logo-img" src="/assets/logo.png" alt="NudgeIt app icon" />
   <div class="hero-eyebrow">
     <span>⌚</span> For iPhone &amp; Apple Watch
   </div>
