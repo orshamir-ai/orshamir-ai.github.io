@@ -77,6 +77,10 @@
       nav { padding: 16px 20px; }
       .nav-links { gap: 16px; }
     }
+    /* Hide internal anchor links on small phones — users scroll; keep Support & Privacy */
+    @media (max-width: 480px) {
+      .nav-link-internal { display: none; }
+    }
 
     /* ── HERO ── */
     .hero {
@@ -275,6 +279,23 @@
     }
     .footer-links a { color: var(--slate-400); transition: color .15s; }
     .footer-links a:hover { color: var(--white); text-decoration: none; }
+
+    /* ── MOBILE ── */
+    @media (max-width: 480px) {
+      .hero { padding: 56px 20px 64px; min-height: auto; }
+      .hero-logo-img { width: 76px; height: 76px; border-radius: 18px; margin-bottom: 22px; }
+      .hero-eyebrow { font-size: .72rem; }
+      .section { padding: 60px 20px; }
+      .section-title { margin-bottom: 36px; }
+      .feature-card { padding: 24px 20px; }
+      .feature-stat { gap: 20px; }
+      .plan { padding: 24px 20px; }
+      .plan-price { font-size: 2rem; }
+      .badge-group { flex-direction: column; align-items: center; }
+      .badge { width: 100%; max-width: 280px; justify-content: center; }
+      footer { padding: 28px 20px; }
+      .footer-links { gap: 16px; }
+    }
   </style>
 </head>
 <body>
@@ -286,8 +307,8 @@
     <span>NudgeIt</span>
   </div>
   <div class="nav-links">
-    <a href="#how">How it works</a>
-    <a href="#features">Features</a>
+    <a class="nav-link-internal" href="#how">How it works</a>
+    <a class="nav-link-internal" href="#features">Features</a>
     <a href="/support">Support</a>
     <a href="/privacy">Privacy</a>
   </div>
