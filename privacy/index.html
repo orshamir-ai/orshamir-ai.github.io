@@ -7,6 +7,15 @@
   <meta name="description" content="Privacy Policy for NudgeIt – the silent haptic wake-up app for iPhone and Apple Watch." />
   <link rel="icon" type="image/png" href="/assets/logo.png" />
   <link rel="apple-touch-icon" href="/assets/logo.png" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta http-equiv="X-Frame-Options" content="DENY" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'unsafe-inline'; img-src 'self' data:; frame-ancestors 'none'; base-uri 'self'" />
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://nudgeit.github.io/privacy" />
+  <meta property="og:site_name"   content="NudgeIt" />
+  <meta property="og:title"       content="Privacy Policy – NudgeIt" />
+  <meta property="og:description" content="Privacy Policy for NudgeIt – the silent haptic wake-up app for iPhone and Apple Watch." />
+  <meta property="og:image"       content="https://nudgeit.github.io/assets/logo.png" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -57,7 +66,21 @@
     .nav-links a { color: var(--slate-400); text-decoration: none; transition: color .15s; }
     .nav-links a:hover { color: var(--white); }
     @media (max-width: 600px) { nav { padding: 16px 20px; } .nav-links { gap: 16px; } }
-    .nav-logo-img { width: 28px; height: 28px; border-radius: 7px; object-fit: cover; flex-shrink: 0; }
+    .nav-logo-img { width: 28px; height: 28px; border-radius: 7px; object-fit: cover; flex-shrink: 0; -webkit-user-drag: none; user-drag: none; pointer-events: none; }
+    nav, .section-num, .page-header h1 { user-select: none; -webkit-user-select: none; }
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+    @media print {
+      nav, footer { display: none; }
+      body { background: #fff; color: #000; }
+      a { color: #000; text-decoration: underline; }
+      .page { padding: 20px; max-width: 100%; }
+      .data-card { border: 1px solid #ccc; background: #f9f9f9; }
+      .data-card p, .policy-section p, ul.policy-list li { color: #222; }
+      .section-num { color: #888; }
+      .no-data-item { border: 1px solid #ccc; background: #f5f5f5; color: #444; }
+      .no-data-item .x { color: #c00; }
+      .summary-box { border-left: 4px solid #888; background: #f5f5f5; }
+    }
 
     /* PAGE */
     .page { max-width: 780px; margin: 0 auto; padding: 70px 24px 100px; }
@@ -278,9 +301,9 @@
   <div class="policy-section">
     <span class="section-num">Section 6</span>
     <h2>Third-Party Services</h2>
-    <p><strong>Google Firebase</strong> (Google LLC) — Authentication, Firestore database, and Cloud Messaging. Governed by <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>.</p>
-    <p><strong>Sign in with Apple</strong> (Apple Inc.) — Optional sign-in method. Governed by <a href="https://www.apple.com/legal/privacy" target="_blank" rel="noopener">Apple's Privacy Policy</a>.</p>
-    <p><strong>Sign in with Google</strong> (Google LLC) — Optional sign-in method. Governed by <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>.</p>
+    <p><strong>Google Firebase</strong> (Google LLC) — Authentication, Firestore database, and Cloud Messaging. Governed by <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google's Privacy Policy</a>.</p>
+    <p><strong>Sign in with Apple</strong> (Apple Inc.) — Optional sign-in method. Governed by <a href="https://www.apple.com/legal/privacy" target="_blank" rel="noopener noreferrer">Apple's Privacy Policy</a>.</p>
+    <p><strong>Sign in with Google</strong> (Google LLC) — Optional sign-in method. Governed by <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google's Privacy Policy</a>.</p>
     <p>No analytics SDKs, advertising networks, or data brokers are integrated into NudgeIt.</p>
   </div>
 

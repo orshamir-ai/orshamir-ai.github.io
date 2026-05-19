@@ -7,10 +7,44 @@
   <meta name="description" content="NudgeIt silently wakes up anyone wearing an Apple Watch by sending a continuous haptic vibration from an iPhone. For iOS and Apple Watch only." />
   <link rel="icon" type="image/png" href="/assets/logo.png" />
   <link rel="apple-touch-icon" href="/assets/logo.png" />
+  <link rel="preload" as="image" href="/assets/logo.png" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta http-equiv="X-Frame-Options" content="DENY" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'unsafe-inline'; img-src 'self' data:; script-src 'unsafe-inline'; form-action https://formspree.io; frame-ancestors 'none'; base-uri 'self'" />
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://nudgeit.github.io/" />
+  <meta property="og:site_name"   content="NudgeIt" />
+  <meta property="og:title"       content="NudgeIt – Don't Shout. Just Nudge." />
+  <meta property="og:description" content="Silently wake up anyone wearing an Apple Watch with a continuous haptic vibration from an iPhone." />
+  <meta property="og:image"       content="https://nudgeit.github.io/assets/logo.png" />
+  <meta name="twitter:card"       content="summary" />
+  <meta name="twitter:image"      content="https://nudgeit.github.io/assets/logo.png" />
   <style>
     /* ── RESET ── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     img, svg { display: block; max-width: 100%; }
+
+    /* ── SECURITY / UX HARDENING ── */
+    /* Disable text selection on all presentational chrome */
+    nav, .hero, .section-label, .section-title,
+    .use-card h3, .feature-tag, .feature-card h3,
+    .plan-label, .badge, .hero-eyebrow, .footer-links {
+      user-select: none;
+      -webkit-user-select: none;
+    }
+    /* Logo: block drag and long-press save on mobile */
+    .nav-logo-img, .hero-logo-img {
+      -webkit-user-drag: none;
+      user-drag: none;
+      pointer-events: none;
+    }
+    /* Keyboard focus ring — visible and on-brand */
+    :focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
 
     /* ── TOKENS ── */
     :root {
@@ -465,5 +499,15 @@
   <p>© 2026 Or Shamir &nbsp;·&nbsp; NudgeIt</p>
 </footer>
 
+<script>
+  /* Developer console message */
+  console.log(
+    '%cNudgeIt 👋',
+    'color:#FF6500;font-size:18px;font-weight:bold'
+  );
+  console.log(
+    'Built with SwiftUI (iOS + watchOS) and Firebase.\nQuestions or partnerships: nudgeupservice@gmail.com'
+  );
+</script>
 </body>
 </html>
