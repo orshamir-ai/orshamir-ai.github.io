@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Support – NudgeIt</title>
+  <meta name="description" content="Get help with NudgeIt — the silent haptic wake-up app for Apple Watch." />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --orange: #FF6B00;
+      --bg: #0F0F0F;
+      --surface: #1A1A1A;
+      --text: #F0F0F0;
+      --muted: #888;
+      --border: #2A2A2A;
+    }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; }
+    a { color: var(--orange); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    nav {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 20px 40px; border-bottom: 1px solid var(--border);
+    }
+    .nav-logo { font-size: 1.2rem; font-weight: 700; color: var(--text); text-decoration: none; }
+    .nav-links { display: flex; gap: 24px; font-size: 0.9rem; }
+    .nav-links a { color: var(--muted); }
+    .nav-links a:hover { color: var(--text); text-decoration: none; }
+
+    .page { max-width: 740px; margin: 0 auto; padding: 60px 20px 100px; }
+
+    h1 { font-size: 2.2rem; font-weight: 800; margin-bottom: 12px; }
+    .subtitle { color: var(--muted); font-size: 1.05rem; margin-bottom: 60px; }
+
+    .contact-box {
+      background: var(--surface);
+      border: 1px solid var(--orange);
+      border-radius: 16px;
+      padding: 28px;
+      margin-bottom: 56px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .contact-box .icon { font-size: 2.2rem; flex-shrink: 0; }
+    .contact-box h2 { font-size: 1.1rem; font-weight: 700; margin-bottom: 4px; }
+    .contact-box p { font-size: 0.9rem; color: var(--muted); }
+    .contact-box a { font-weight: 600; }
+
+    h2.faq-heading {
+      font-size: 1.4rem; font-weight: 700; margin-bottom: 24px;
+      padding-bottom: 12px; border-bottom: 1px solid var(--border);
+    }
+
+    .faq { margin-bottom: 48px; }
+    .faq-item { border-bottom: 1px solid var(--border); padding: 20px 0; }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-q { font-weight: 700; font-size: 1rem; margin-bottom: 8px; }
+    .faq-a { font-size: 0.9rem; color: var(--muted); }
+    .faq-a strong { color: var(--text); }
+
+    footer {
+      text-align: center; padding: 40px 20px;
+      border-top: 1px solid var(--border);
+      font-size: 0.85rem; color: var(--muted);
+    }
+    footer a { color: var(--muted); }
+    .footer-links { display: flex; justify-content: center; gap: 24px; margin-bottom: 12px; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="/">📳 NudgeIt</a>
+  <div class="nav-links">
+    <a href="/support">Support</a>
+    <a href="/privacy">Privacy</a>
+  </div>
+</nav>
+
+<div class="page">
+
+  <h1>Support</h1>
+  <p class="subtitle">Have a question or running into an issue? We're happy to help.</p>
+
+  <div class="contact-box">
+    <div class="icon">✉️</div>
+    <div>
+      <h2>Contact us</h2>
+      <p>Email us at <a href="mailto:nudgeupservice@gmail.com">nudgeupservice@gmail.com</a> and we'll get back to you as soon as possible.</p>
+    </div>
+  </div>
+
+  <h2 class="faq-heading">Frequently Asked Questions</h2>
+
+  <div class="faq">
+
+    <div class="faq-item">
+      <div class="faq-q">Does the Apple Watch need to be paired to the sender's iPhone?</div>
+      <div class="faq-a">No. Any Apple Watch running the NudgeIt Watch app can be paired — it does not need to be the watch associated with the sender's iPhone via Apple's system. The two devices communicate through the internet via NudgeIt's servers.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">How do I pair my iPhone with an Apple Watch?</div>
+      <div class="faq-a">
+        <strong>On the Apple Watch:</strong> open the NudgeIt Watch app and tap "Pair Phone" to generate a 6-digit code.<br><br>
+        <strong>On the iPhone:</strong> tap "Pair New Watch", enter the 6-digit code along with a name for the watch, then tap "Ready to Pair". The pairing code is valid for 5 minutes.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">The watch is not vibrating when I tap NUDGE. What should I do?</div>
+      <div class="faq-a">
+        1. Make sure the NudgeIt Watch app is installed and open on the Apple Watch at least once after install.<br>
+        2. Check that the watch has an internet connection (Wi-Fi or cellular).<br>
+        3. On the watch, open NudgeIt and check that reception is enabled.<br>
+        4. If the issue persists, try unpairing and re-pairing the watch from the iPhone app.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">The iPhone app shows "Open the watch app, then try again." What does this mean?</div>
+      <div class="faq-a">The watch's push notification token has expired or changed. Open the NudgeIt Watch app on the Apple Watch — it will refresh its connection automatically. Then try sending the nudge again from the iPhone.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">How many watches can I pair?</div>
+      <div class="faq-a">Free users can pair <strong>1 watch</strong>. Premium users can pair up to <strong>3 watches</strong>.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">How many nudges can I send per day?</div>
+      <div class="faq-a">Free users can send <strong>3 nudges per day</strong>. Premium users have <strong>unlimited</strong> nudges. The daily count resets at midnight.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">How do I stop the vibration on the Apple Watch?</div>
+      <div class="faq-a">Press and hold the large Stop button on the watch screen. A brief hold is required to confirm you're awake — a light tap won't stop it.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Can I use NudgeIt without an internet connection?</div>
+      <div class="faq-a">No. Both the iPhone and the Apple Watch need an active internet connection (Wi-Fi or cellular) to send and receive nudges. The nudge signal travels through NudgeIt's servers.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">How do I cancel my Premium subscription?</div>
+      <div class="faq-a">Open the <strong>Settings</strong> app on your iPhone → tap your Apple ID at the top → Subscriptions → NudgeIt → Cancel Subscription. You'll keep Premium access until the end of the current billing period.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">How do I delete my account?</div>
+      <div class="faq-a">Email us at <a href="mailto:nudgeupservice@gmail.com">nudgeupservice@gmail.com</a> with the subject "Delete my account" and we will permanently delete all data associated with your account within 30 days.</div>
+    </div>
+
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-links">
+    <a href="/">Home</a>
+    <a href="/privacy">Privacy Policy</a>
+  </div>
+  <p>© 2026 Or Shamir</p>
+</footer>
+
+</body>
+</html>
