@@ -69,6 +69,8 @@
     .nav-logo-img { width: 28px; height: 28px; border-radius: 7px; object-fit: cover; flex-shrink: 0; -webkit-user-drag: none; user-drag: none; pointer-events: none; }
     nav, .section-num, .page-header h1 { user-select: none; -webkit-user-select: none; }
     :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+    .nav-brand:hover { opacity: .85; text-decoration: none; }
+    .nav-links a.nav-active { color: var(--white); font-weight: 600; }
     @media print {
       nav, footer { display: none; }
       body { background: #fff; color: #000; }
@@ -176,6 +178,7 @@
 
     /* ── MOBILE ── */
     @media (max-width: 480px) {
+      .nav-link-internal { display: none; }
       .page { padding: 40px 20px 80px; }
       .page-header { margin-bottom: 36px; }
       .page-header h1 { font-size: 2rem; }
@@ -198,8 +201,9 @@
     <span>NudgeIt</span>
   </a>
   <div class="nav-links">
+    <a href="/" class="nav-link-internal">Home</a>
     <a href="/support">Support</a>
-    <a href="/privacy">Privacy</a>
+    <a href="/privacy" class="nav-active" aria-current="page">Privacy</a>
   </div>
 </nav>
 
