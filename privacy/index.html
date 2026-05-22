@@ -329,22 +329,62 @@
   <div class="policy-section">
     <span class="section-num">Section 9</span>
     <h2>Data Retention</h2>
-    <p>Your account data is retained for as long as your account remains active. Push tokens are deleted when you unpair a watch. If you request account deletion, all associated data is permanently removed within 30 days.</p>
+    <p>Your account data is retained for as long as your account remains active. Push notification tokens are deleted when you unpair a watch or uninstall the app. Upon account deletion — whether initiated in-app or via an email request — all associated server-side data is permanently and irreversibly removed from our Firebase database within <strong>48 hours</strong>. Locally cached data on your device is erased at the moment you confirm deletion in the app.</p>
   </div>
 
   <!-- 10. ACCOUNT DELETION -->
   <div class="policy-section">
     <span class="section-num">Section 10</span>
     <h2>Account Deletion</h2>
+
     <div class="data-card">
       <div class="data-card-header">
         <span class="data-card-icon">🗑️</span>
-        <h3>How to Delete Your Account and Data</h3>
+        <h3>In-App Self-Service Deletion</h3>
       </div>
-      <p>You have the right to permanently delete your account and all associated data from NudgeIt's servers at any time. This includes your email address, device identifiers, paired watch history, push notification tokens, subscription tier, and any alarm status records linked to your account.</p>
-      <p><strong>Option 1 — Through the app:</strong> Open the NudgeIt iPhone app, go to <strong>Settings → Log Out</strong>. This immediately removes all locally cached data from your device. To also purge your cloud profile and paired history, follow this with a deletion request via Option 2 below.</p>
-      <p><strong>Option 2 — Via the support page:</strong> Submit a request at <a href="/support">nudgeit.github.io/support</a>, select <em>Account Management</em> as the category, and describe your request as "Account deletion". Alternatively, email <a href="mailto:nudgeupservice@gmail.com">nudgeupservice@gmail.com</a> with the subject <strong>"Delete my account"</strong>. We will permanently purge your cloud database entry, profile configuration, and complete paired device history within <strong>30 days</strong> of receiving the request.</p>
-      <p>Once deleted, your data cannot be recovered. Any active Premium subscription must be cancelled separately through the App Store (iPhone Settings → Apple ID → Subscriptions) before requesting account deletion.</p>
+      <p>NudgeIt provides a native, self-service account deletion flow directly inside the iPhone app. No email request or waiting period is required to initiate deletion.</p>
+      <p><strong>How to delete your account in the app:</strong></p>
+      <ol style="margin: 10px 0 10px 20px; font-size: .875rem; color: var(--slate-400); line-height: 1.9;">
+        <li>Open the <strong>NudgeIt</strong> iPhone app.</li>
+        <li>Tap the <strong>Settings</strong> tab (bottom navigation bar).</li>
+        <li>Scroll to the <strong>Account Management</strong> section.</li>
+        <li>Tap <strong>Delete Account</strong>.</li>
+        <li>Read and confirm the deletion prompt.</li>
+      </ol>
+      <p>Upon confirmation, the following actions occur <strong>immediately and automatically</strong>:</p>
+      <ul class="policy-list" style="margin-top: 8px;">
+        <li>All locally cached data is erased from your device (watch list, activity history, cooldown state, preferences).</li>
+        <li>A secure server-side erasure request is dispatched to our Firebase backend via an authenticated API call.</li>
+        <li>Your Firebase Authentication account is permanently invalidated, ending all active sessions across devices.</li>
+      </ul>
+    </div>
+
+    <div class="data-card" style="margin-top: 16px;">
+      <div class="data-card-header">
+        <span class="data-card-icon">🛡️</span>
+        <h3>What Is Erased From Our Servers</h3>
+      </div>
+      <p>The server-side erasure pipeline removes the following records from Google Firebase within <strong>48 hours</strong> of the deletion request:</p>
+      <ul class="policy-list">
+        <li><strong>User profile</strong> — email address, account tier, creation timestamp, and daily usage counters stored in <code>users/{uid}</code>.</li>
+        <li><strong>Paired watch list</strong> — all watch entries under <code>users/{uid}/watches/*</code>.</li>
+        <li><strong>Phone pairing records</strong> — all entries in <code>watches/{watchId}/paired_phones/</code> that are linked to your account, with the corresponding device pairing count decremented atomically.</li>
+        <li><strong>Idempotency records</strong> — request deduplication tokens scoped to your user ID (<code>request_ids</code> collection).</li>
+        <li><strong>Rate-limit counters</strong> — brute-force protection records in the <code>pairing_attempts</code> collection.</li>
+        <li><strong>Firebase Authentication account</strong> — permanently deleted, invalidating all sign-in credentials.</li>
+      </ul>
+      <p>Ephemeral alarm status records (<code>alarms</code> collection) generated during active nudge sessions are automatically purged by our scheduled maintenance job within 24 hours of expiry, independently of account deletion.</p>
+      <p>A secondary server-side process monitors for any records not caught by the primary deletion call and removes them as a safety net within the 48-hour window.</p>
+    </div>
+
+    <div class="data-card" style="margin-top: 16px;">
+      <div class="data-card-header">
+        <span class="data-card-icon">⚠️</span>
+        <h3>Important Notes Before Deleting</h3>
+      </div>
+      <p><strong>Irreversible:</strong> Account deletion is permanent. Your data cannot be recovered after confirmation.</p>
+      <p><strong>Subscription:</strong> Deleting your NudgeIt account does not automatically cancel an active Premium subscription. Cancel your subscription first via <strong>iPhone Settings → [Your Name] → Subscriptions → NudgeIt</strong> to avoid future charges.</p>
+      <p><strong>Alternative — email request:</strong> If you are unable to access the app, you may submit a deletion request by emailing <a href="mailto:nudgeupservice@gmail.com">nudgeupservice@gmail.com</a> with the subject <strong>"Delete my account"</strong>, or by submitting the form at <a href="/support">nudgeit.github.io/support</a> under the <em>Account Management &amp; Data Deletion Requests</em> category. Manual requests are processed within <strong>30 days</strong>.</p>
     </div>
   </div>
 
