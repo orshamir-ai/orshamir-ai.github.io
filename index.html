@@ -291,8 +291,17 @@
     }
     .plan-label.free { color: var(--slate-400); }
     .plan-label.premium { color: var(--accent); }
-    .plan-price { font-size: 2.4rem; font-weight: 800; letter-spacing: -1px; margin-bottom: 24px; }
+    .plan-price { font-size: 2.4rem; font-weight: 800; letter-spacing: -1px; margin-bottom: 6px; }
     .plan-price span { font-size: 1rem; font-weight: 400; color: var(--slate-400); }
+    .plan-price-alt {
+      font-size: .85rem; color: var(--slate-400); margin-bottom: 20px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .save-badge {
+      background: var(--accent); color: #fff;
+      font-size: .7rem; font-weight: 700; letter-spacing: .5px;
+      padding: 2px 7px; border-radius: 20px;
+    }
     .plan-items { list-style: none; }
     .plan-items li {
       display: flex; align-items: flex-start; gap: 10px;
@@ -480,7 +489,8 @@
 
     <div class="plan featured">
       <div class="plan-label premium">Premium</div>
-      <div class="plan-price">$3.99 <span>/ month</span></div>
+      <div class="plan-price">$2.99 <span>/ month</span></div>
+      <div class="plan-price-alt">or $29.99 / year &nbsp;<span class="save-badge">Save 16%</span></div>
       <ul class="plan-items">
         <li><span class="check">✓</span> Unlimited nudges</li>
         <li><span class="check">✓</span> Gentle, Normal &amp; Urgent profiles</li>
