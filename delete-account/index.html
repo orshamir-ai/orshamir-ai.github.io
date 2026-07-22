@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Delete Your Account – NudgeIt</title>
+  <meta name="description" content="How to delete your NudgeIt account and what data is removed." />
+  <link rel="icon" type="image/png" href="/assets/logo.png" />
+  <link rel="apple-touch-icon" href="/assets/logo.png" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta http-equiv="X-Frame-Options" content="DENY" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'unsafe-inline'; img-src 'self' data:; frame-ancestors 'none'; base-uri 'self'" />
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://nudgeit.github.io/delete-account" />
+  <meta property="og:site_name"   content="NudgeIt" />
+  <meta property="og:title"       content="Delete Your Account – NudgeIt" />
+  <meta property="og:description" content="How to delete your NudgeIt account and what data is removed." />
+  <meta property="og:image"       content="https://nudgeit.github.io/assets/logo.png" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black:       #080808;
+      --slate-950:   #0D0D0F;
+      --slate-900:   #131317;
+      --slate-800:   #1C1C22;
+      --slate-700:   #27272F;
+      --slate-500:   #52525E;
+      --slate-400:   #71717D;
+      --slate-200:   #C8C8D0;
+      --white:       #F4F4F6;
+      --accent:      #FF6500;
+      --accent-dim:  rgba(255,101,0,.12);
+      --radius-sm:   8px;
+      --radius-md:   14px;
+      --radius-lg:   22px;
+      --font:        -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font);
+      background: var(--black);
+      color: var(--white);
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); }
+    a:hover { text-decoration: underline; }
+
+    /* NAV */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 18px 40px;
+      background: rgba(8,8,8,.85);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--slate-800);
+    }
+    .nav-brand {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 1.05rem; font-weight: 700;
+      color: var(--white); text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 28px; font-size: .875rem; }
+    .nav-links a { color: var(--slate-400); text-decoration: none; transition: color .15s; }
+    .nav-links a:hover { color: var(--white); }
+    @media (max-width: 600px) { nav { padding: 16px 20px; } .nav-links { gap: 16px; } }
+    .nav-logo-img { width: 28px; height: 28px; border-radius: 7px; object-fit: cover; flex-shrink: 0; -webkit-user-drag: none; user-drag: none; pointer-events: none; }
+    nav, .section-num, .page-header h1 { user-select: none; -webkit-user-select: none; }
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+    .nav-brand:hover { opacity: .85; text-decoration: none; }
+    .nav-links a.nav-active { color: var(--white); font-weight: 600; }
+    @media print {
+      nav, footer { display: none; }
+      body { background: #fff; color: #000; }
+      a { color: #000; text-decoration: underline; }
+      .page { padding: 20px; max-width: 100%; }
+      .data-card { border: 1px solid #ccc; background: #f9f9f9; }
+      .data-card p, .policy-section p, ul.policy-list li { color: #222; }
+      .section-num { color: #888; }
+      .summary-box { border-left: 4px solid #888; background: #f5f5f5; }
+    }
+
+    /* PAGE */
+    .page { max-width: 780px; margin: 0 auto; padding: 70px 24px 100px; }
+
+    .page-header { margin-bottom: 48px; }
+    .page-header h1 { font-size: 2.4rem; font-weight: 800; letter-spacing: -1px; margin-bottom: 10px; }
+    .updated { font-size: .85rem; color: var(--slate-500); }
+
+    /* SUMMARY BOX */
+    .summary-box {
+      background: var(--slate-900);
+      border: 1px solid var(--slate-800);
+      border-left: 4px solid var(--accent);
+      border-radius: var(--radius-md);
+      padding: 24px 28px;
+      margin-bottom: 56px;
+    }
+    .summary-box p { font-size: .9rem; color: var(--slate-200); }
+
+    /* SECTIONS */
+    .policy-section { margin-bottom: 52px; }
+
+    .section-num {
+      display: inline-block;
+      font-size: .72rem; font-weight: 700;
+      letter-spacing: 2px; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 10px;
+    }
+    .policy-section h2 {
+      font-size: 1.25rem; font-weight: 700;
+      margin-bottom: 18px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--slate-800);
+    }
+    .policy-section p {
+      font-size: .9rem; color: var(--slate-200);
+      margin-bottom: 14px;
+    }
+    .policy-section p:last-child { margin-bottom: 0; }
+    .policy-section strong { color: var(--white); }
+
+    /* DATA CARDS */
+    .data-card {
+      background: var(--slate-900);
+      border: 1px solid var(--slate-800);
+      border-radius: var(--radius-md);
+      padding: 24px 28px;
+      margin-bottom: 16px;
+    }
+    .data-card-header {
+      display: flex; align-items: center; gap: 12px;
+      margin-bottom: 12px;
+    }
+    .data-card-icon { font-size: 1.4rem; flex-shrink: 0; }
+    .data-card h3 { font-size: 1rem; font-weight: 700; }
+    .data-card p { font-size: .875rem; color: var(--slate-400); line-height: 1.7; }
+    .data-card p + p { margin-top: 8px; }
+    .data-card strong { color: var(--slate-200); }
+
+    ol.steps, ul.policy-list { margin: 10px 0 10px 20px; }
+    ol.steps li, ul.policy-list li { font-size: .875rem; color: var(--slate-400); margin-bottom: 6px; line-height: 1.9; }
+    ol.steps li strong, ul.policy-list li strong { color: var(--slate-200); }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--slate-800);
+      padding: 36px 24px;
+      text-align: center;
+      color: var(--slate-500); font-size: .85rem;
+    }
+    .footer-links {
+      display: flex; justify-content: center; gap: 24px;
+      margin-bottom: 12px; flex-wrap: wrap;
+    }
+    .footer-links a { color: var(--slate-400); text-decoration: none; }
+    .footer-links a:hover { color: var(--white); }
+
+    /* ── MOBILE ── */
+    @media (max-width: 480px) {
+      .nav-link-internal { display: none; }
+      .page { padding: 40px 20px 80px; }
+      .page-header { margin-bottom: 36px; }
+      .page-header h1 { font-size: 2rem; }
+      .summary-box { padding: 20px; margin-bottom: 40px; }
+      .data-card { padding: 20px; }
+      .data-card-header { gap: 10px; }
+      .data-card-icon { font-size: 1.2rem; }
+      .policy-section { margin-bottom: 36px; }
+      footer { padding: 28px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-brand" href="/">
+    <img class="nav-logo-img" src="/assets/logo.png" alt="NudgeIt logo" />
+    <span>NudgeIt</span>
+  </a>
+  <div class="nav-links">
+    <a href="/" class="nav-link-internal">Home</a>
+    <a href="/support">Support</a>
+    <a href="/privacy">Privacy</a>
+  </div>
+</nav>
+
+<div class="page">
+
+  <div class="page-header">
+    <h1>Delete Your Account</h1>
+    <p class="updated">Last updated: July 22, 2026</p>
+  </div>
+
+  <div class="summary-box">
+    <p>You can permanently delete your <strong>NudgeIt</strong> account and all associated data at any time — directly inside the app, or by email if you can't access it. This page explains how, and exactly what is removed. Deletion is <strong>free, self-service, and irreversible</strong>.</p>
+  </div>
+
+  <!-- 1. IN-APP DELETION -->
+  <div class="policy-section">
+    <span class="section-num">Section 1</span>
+    <h2>Delete Your Account In the App</h2>
+
+    <div class="data-card">
+      <div class="data-card-header">
+        <span class="data-card-icon">📱</span>
+        <h3>Android (NudgeIt phone app)</h3>
+      </div>
+      <ol class="steps">
+        <li>Open the <strong>NudgeIt</strong> app on your Android phone.</li>
+        <li>Go to <strong>Settings</strong>.</li>
+        <li>Open the <strong>Account Management</strong> section.</li>
+        <li>Tap <strong>Delete Account</strong>.</li>
+        <li>Read and confirm the deletion prompt.</li>
+      </ol>
+    </div>
+
+    <div class="data-card">
+      <div class="data-card-header">
+        <span class="data-card-icon">🍎</span>
+        <h3>iPhone (NudgeIt app)</h3>
+      </div>
+      <ol class="steps">
+        <li>Open the <strong>NudgeIt</strong> app on your iPhone.</li>
+        <li>Tap the <strong>Settings</strong> tab.</li>
+        <li>Scroll to <strong>Account Management</strong>.</li>
+        <li>Tap <strong>Delete Account</strong> and confirm.</li>
+      </ol>
+    </div>
+
+    <p style="margin-top:8px">Upon confirmation, all locally cached data is erased from your device immediately, an authenticated erasure request is sent to our backend, and your sign-in account is permanently invalidated across all devices.</p>
+  </div>
+
+  <!-- 2. WHAT IS ERASED -->
+  <div class="policy-section">
+    <span class="section-num">Section 2</span>
+    <h2>What Is Deleted</h2>
+
+    <div class="data-card">
+      <div class="data-card-header">
+        <span class="data-card-icon">🗑️</span>
+        <h3>Removed from our servers within 48 hours</h3>
+      </div>
+      <ul class="policy-list">
+        <li><strong>Account profile</strong> — your email address, account tier, and usage counters (<code>users/{uid}</code>).</li>
+        <li><strong>Paired watches</strong> — every watch linked to your account.</li>
+        <li><strong>Phone pairing records</strong> — your device's entries under each paired watch, with pairing counts adjusted.</li>
+        <li><strong>Push tokens</strong> — the device tokens used to deliver nudges.</li>
+        <li><strong>Deduplication &amp; rate-limit records</strong> scoped to your account.</li>
+        <li><strong>Authentication account</strong> — your Google / Apple sign-in link to NudgeIt is permanently deleted.</li>
+      </ul>
+      <p>Temporary nudge/alarm status records are automatically purged by a scheduled maintenance job. A secondary server-side process sweeps for any leftover records as a safety net within the 48-hour window.</p>
+    </div>
+  </div>
+
+  <!-- 3. BEFORE YOU DELETE -->
+  <div class="policy-section">
+    <span class="section-num">Section 3</span>
+    <h2>Before You Delete</h2>
+
+    <div class="data-card">
+      <div class="data-card-header">
+        <span class="data-card-icon">⚠️</span>
+        <h3>Please note</h3>
+      </div>
+      <p><strong>Irreversible:</strong> deletion is permanent — your data cannot be recovered afterward.</p>
+      <p><strong>Cancel your subscription first.</strong> Deleting your account does not cancel an active Premium subscription. Cancel it to avoid future charges:</p>
+      <ul class="policy-list">
+        <li><strong>Android:</strong> Google Play app → profile → <em>Payments &amp; subscriptions</em> → <em>Subscriptions</em> → NudgeIt → Cancel.</li>
+        <li><strong>iPhone:</strong> Settings → [your name] → Subscriptions → NudgeIt → Cancel.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 4. CANT ACCESS THE APP -->
+  <div class="policy-section">
+    <span class="section-num">Section 4</span>
+    <h2>Can't Access the App?</h2>
+    <p>If you're unable to open the app, you can still request deletion by email. Send a message to <a href="mailto:nudgeupservice@gmail.com?subject=Delete%20my%20account">nudgeupservice@gmail.com</a> with the subject <strong>"Delete my account"</strong> from the email address associated with your account, or submit a request via the <a href="/support">support page</a> under <em>Account Management &amp; Data Deletion Requests</em>. Email requests are processed within <strong>30 days</strong>.</p>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-links">
+    <a href="/">Home</a>
+    <a href="/support">Support</a>
+    <a href="/privacy">Privacy</a>
+  </div>
+  <p>© 2026 Or Shamir</p>
+</footer>
+
+</body>
+</html>
